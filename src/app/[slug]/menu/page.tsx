@@ -1,9 +1,9 @@
-import { ChevronLeftIcon } from "lucide-react";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 
-import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
+
+import RestaurantCategories from "./components/categories";
+import RestaurantHeader from "./components/header";
 // Essa pagina também tera acesso ao slug
 interface RestaurantMenuPageProps {
   params: Promise<{ slug: string }>;
@@ -24,6 +24,7 @@ const RestaurantMenuPage = async ({
     return notFound();
   }
   const restaurant = await db.restaurant.findUnique({
+    // o where faz um JOIN com as outras tabelas
     where: { slug },
     include: {
       menuCategories: {
@@ -35,20 +36,9 @@ const RestaurantMenuPage = async ({
     return notFound();
   }
   return (
-    <div className="relative h-[250px] w-full">
-      <Button
-        className="roundend-full absolute left-4 top-4 z-50"
-        variant="secondary"
-        size="icon"
-      >
-        <ChevronLeftIcon />
-      </Button>
-      <Image
-        className="object-cover"
-        src={restaurant?.coverImageUrl}
-        fill
-        alt={restaurant.name}
-      />
+    <div>
+      <RestaurantHeader restaurant={restaurant} />
+      <RestaurantCategories restaurant={restaurant}/>s
     </div>
   );
 };
