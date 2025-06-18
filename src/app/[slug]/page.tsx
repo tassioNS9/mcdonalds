@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 
 import { db } from "@/lib/prisma";
 
+import ConsumptionMethodOption from "./components/consumption-method-option";
+
 interface RestaurantPageProps {
   params: Promise<{ slug: string }>;
 }
@@ -34,7 +36,22 @@ const RestaurantPage = async ({ params }: RestaurantPageProps) => {
           oferecer praticidade e sabor em cada detalhe!
         </p>
       </div>
-      <div className="grid grid-cols-2 gap-4 pt-14"></div>
+      <div className="grid grid-cols-2 gap-4 pt-14">
+        <ConsumptionMethodOption
+          slug={slug}
+          option="DINE_IN"
+          buttonText="Para comer aqui"
+          imageAlt="Comer aqui"
+          imageUrl="/dine_in.png"
+        />
+        <ConsumptionMethodOption
+          slug={slug}
+          option="TAKEAWAY"
+          buttonText="Para levar"
+          imageAlt="Para levar"
+          imageUrl="/takeaway.png"
+        />
+      </div>
     </div>
   );
 };
