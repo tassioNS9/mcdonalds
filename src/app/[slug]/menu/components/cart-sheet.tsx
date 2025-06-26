@@ -10,6 +10,7 @@ import {
 import { formatCurrency } from "@/helpers/format-currency";
 
 import { CartContext } from "../contexts/cart";
+import CartProductItem from "./cart-product-item";
 
 const CartSheet = () => {
   const { isOpen, toggleCart, products, total } = useContext(CartContext);
@@ -30,7 +31,7 @@ const CartSheet = () => {
               </div>
             </CardContent>
             {products.map((product)=>(
-                <h1 key={product.id}>{product.name}- {product.quantity}</h1>
+               <CartProductItem key={product.id} product={product}/>
             ))}
           </Card>
         </div>

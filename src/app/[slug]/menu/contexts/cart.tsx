@@ -8,6 +8,7 @@ export interface CartProduct
   quantity: number;
 }
 
+// exportando para usar no Cart-product-item
 export interface ICartContext {
   isOpen: boolean;
   products: CartProduct[];
