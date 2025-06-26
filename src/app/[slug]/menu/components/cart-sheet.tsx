@@ -12,7 +12,7 @@ import { formatCurrency } from "@/helpers/format-currency";
 import { CartContext } from "../contexts/cart";
 
 const CartSheet = () => {
-  const { isOpen, toggleCart, total } = useContext(CartContext);
+  const { isOpen, toggleCart, products, total } = useContext(CartContext);
   return (
     <Sheet open={isOpen} onOpenChange={toggleCart}>
       <SheetContent className="w-[80%]">
@@ -29,6 +29,9 @@ const CartSheet = () => {
                 <p className="text-sm font-semibold">{formatCurrency(total)}</p>
               </div>
             </CardContent>
+            {products.map((product)=>(
+                <h1 key={product.id}>{product.name}- {product.quantity}</h1>
+            ))}
           </Card>
         </div>
       </SheetContent>

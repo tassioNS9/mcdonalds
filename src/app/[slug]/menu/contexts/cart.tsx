@@ -48,6 +48,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     setIsOpen((prev) => !prev);
   };
   const addProduct = (product: CartProduct) => {
+        // Retorna tudo que estava na lista anterior e coloca o novo produto
+      console.log(product,'preebv')
+        // Verifica se o produto do id já contem na lista para nao repetir a imagem
     const productIsAlreadyOnTheCart = products.some(
       (prevProduct) => prevProduct.id === product.id,
     );
@@ -62,6 +65,7 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
             quantity: prevProduct.quantity + product.quantity,
           };
         }
+      
         return prevProduct;
       });
     });

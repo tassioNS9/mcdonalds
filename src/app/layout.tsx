@@ -12,7 +12,7 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "MC Donalds",
-  description: "O melhor Hamburguer da Casa!",
+  description: "O melhor FastFood do Brasil!",
 };
 
 export default function RootLayout({
