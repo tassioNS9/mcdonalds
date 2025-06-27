@@ -38,9 +38,11 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [products, setProducts] = useState<CartProduct[]>([]);
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
+  // o calculo que começa com 0 que faz a soma do preço dos produtos x quantidade
   const total = products.reduce((acc, product) => {
     return acc + product.price * product.quantity;
   }, 0);
+    // o calculo que começa com 0 que faz a soma das quantidades do produto
   const totalQuantity = products.reduce((acc, product) => {
     return acc + product.quantity;
   }, 0);
