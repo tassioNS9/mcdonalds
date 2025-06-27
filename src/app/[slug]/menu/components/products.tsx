@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { useParams, useSearchParams } from "next/navigation";
 
-
 interface ProductsProps {
   products: Product[];
 }
@@ -11,6 +10,7 @@ interface ProductsProps {
 const Products = ({ products }: ProductsProps) => {
   const { slug } = useParams<{ slug: string }>();
   const searchParams = useSearchParams();
+  // Pegar o consumptionMethod como parametro
   const consumptionMethod = searchParams.get("consumptionMethod");
   return (
     <div className="space-y-3 px-5 py-3">
@@ -28,8 +28,8 @@ const Products = ({ products }: ProductsProps) => {
             </p>
             <p className="pt-3 text-sm font-semibold">
               {new Intl.NumberFormat("pt-BR", {
-                style:"currency",
-                currency:"BRL",
+                style: "currency",
+                currency: "BRL",
               }).format(product.price)}
             </p>
           </div>
