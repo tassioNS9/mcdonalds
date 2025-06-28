@@ -13,6 +13,7 @@ const OrdersPage = async ({ searchParams }: OrdersPageProps) => {
     const { cpf } = await searchParams;
 
     if (!cpf) {
+      console.log('erroe')
     return <CpfForm />;
   }
     if (!isValidCpf(cpf)) {
@@ -20,6 +21,9 @@ const OrdersPage = async ({ searchParams }: OrdersPageProps) => {
   }
   // Incluindo os pedidos e apenas o name e o avatarImageUrl do restaurant
   const orders = await db.order.findMany({
+    orderBy:{
+      createdAt:'desc'
+    },
     where:{
         customerCpf:removeCpfPunctuation(cpf)
     },
