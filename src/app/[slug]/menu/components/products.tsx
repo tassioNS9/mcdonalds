@@ -39,6 +39,7 @@ const Products = ({ products }: ProductsProps) => {
             <Image
               src={product.imageUrl}
               alt={product.name}
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               fill
               className="rounded-lg object-contain"
             />
