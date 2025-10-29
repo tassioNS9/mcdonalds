@@ -1,36 +1,55 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# McDonald's Delivery System
 
-First, run the development server:
+Este projeto é um sistema de delivery de comidas desenvolvido com foco em agilidade, escalabilidade e experiência do usuário.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias e Bibliotecas Utilizadas
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Next.js**: Framework React para aplicações web modernas.
+- **TypeScript**: Tipagem estática para maior segurança e produtividade.
+- **Tailwind CSS**: Estilização rápida e responsiva.
+- **Prisma ORM**: Gerenciamento de banco de dados relacional.
+- **ESLint & Prettier**: Padronização e qualidade de código.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Padrões de Projeto
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Componentização**: Reutilização de componentes React.
+- **Context API**: Gerenciamento de estado global (ex: carrinho de compras).
+- **Actions & Helpers**: Separação de lógica de negócio e utilitários.
+- **Rotas Dinâmicas**: URLs amigáveis para restaurantes, produtos e pedidos.
 
-## Learn More
+## Setup do Projeto
 
-To learn more about Next.js, take a look at the following resources:
+1. **Instale as dependências:**
+	```bash
+	npm install
+	```
+2. **Configure o banco de dados:**
+	- Edite o arquivo `.env` com sua conexão.
+	- Execute as migrações:
+	  ```bash
+	  npx prisma migrate dev
+	  ```
+	- (Opcional) Popule o banco com dados de exemplo:
+	  ```bash
+	  npx prisma db seed
+	  ```
+3. **Inicie o servidor de desenvolvimento:**
+	```bash
+	npm run dev
+	```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Estrutura Principal
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `src/app/` - Páginas e componentes principais
+- `prisma/` - Schema e migrações do banco de dados
+- `public/` - Arquivos estáticos
 
-## Deploy on Vercel
+## Observações
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- O projeto utiliza padrões modernos de desenvolvimento web.
+- Para produção, configure variáveis de ambiente e revise permissões de acesso.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+Desenvolvido para facilitar pedidos e gestão de restaurantes no sistema de delivery.
